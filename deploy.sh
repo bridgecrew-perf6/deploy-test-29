@@ -1,0 +1,1 @@
+echo $(date) > deploy_success.txt

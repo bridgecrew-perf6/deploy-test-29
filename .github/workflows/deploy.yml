@@ -28,5 +28,5 @@ jobs:
         with:
           project-name: airbnb-codebuild
 
-      - name: Code Deploy
-        run: aws deploy create-deployment --application-name cicdtest --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name cicd-bluegreen --s3-location bucket=cicdtestsunny,bundleType=zip,key=build.zip
+#       - name: Code Deploy
+#         run: aws deploy create-deployment --application-name cicdtest --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name cicd-bluegreen --s3-location bucket=cicdtestsunny,bundleType=zip,key=build.zip

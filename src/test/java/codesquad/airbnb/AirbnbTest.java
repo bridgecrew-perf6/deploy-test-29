@@ -14,8 +14,8 @@ class AirbnbTest {
     }
 
     @Test
-    @DisplayName("Test case 2) 1 > 1")
+    @DisplayName("Test case 2) 2 > 1")
     void test2() {
-        assertThat(1).isGreaterThan(1);
+        assertThat(2).isGreaterThan(1);
     }
 }

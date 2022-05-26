@@ -47,4 +47,4 @@ jobs:
         run: aws s3 cp --region ap-northeast-2 --acl private ./airbnb-deploy.zip s3://airbnb-s3-bucket-deploy/
 
       - name: AWS CodeDeploy 배포 실행
-        run: aws deploy create-deployment --application-name airbnb-deploy --deployment-group airbnb-dg --s3-location bucket=airbnb-s3-bucket-deploy key=airbnb-deploy.zip,bundleType=zip
+        run: aws deploy create-deployment --application-name airbnb-deploy --deployment-group airbnb-dg --s3-location bucket=airbnb-s3-bucket-deploy,key=airbnb-deploy.zip,bundleType=zip

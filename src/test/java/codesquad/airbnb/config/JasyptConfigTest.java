@@ -22,11 +22,11 @@ class JasyptConfigTest {
     @Test
     void 환경변수_설정여부_확인 () {
         // when
-//        String encryptionKey = System.getenv(JasyptConfig.ENV_JASYPT_KEY);
-//
-//        // then
-//        assertThat(encryptionKey).isNotNull();
-//        assertThat(encryptionKey).isNotEmpty();
+        String encryptionKey = System.getenv(JasyptConfig.ENV_JASYPT_KEY);
+
+        // then
+        assertThat(encryptionKey).isNotNull();
+        assertThat(encryptionKey).isNotEmpty();
     }
 
     @Test

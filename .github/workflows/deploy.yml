@@ -21,14 +21,13 @@ jobs:
         with:
           java-version: 11
 
-      - name: 환경변수 세팅
-        run: export JASYPT_KEY=${{ secrets.JASYPT_KEY }}
-
       - name: gradlew 실행 권한 부여
         run: chmod +x ./gradlew
 
       - name: 프로젝트 빌드
         run: ./gradlew build
+        env:
+          JASYPT_KEY: ${{ secrets.JASYPT_KEY }}
 
 #       - name: Code Deploy
 #         run: aws deploy create-deployment --application-name cicdtest --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name cicd-bluegreen --s3-location bucket=cicdtestsunny,bundleType=zip,key=build.zip

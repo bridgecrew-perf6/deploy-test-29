@@ -13,9 +13,9 @@ phases:
 artifacts:
   files:
     - build/libs/*.jar
-    - appspec.yml
-    - beforeInstall.sh
-    - deploy.sh
+#    - appspec.yml
+#    - beforeInstall.sh
+#    - deploy.sh
   discard-paths: yes
 cache:
   paths:

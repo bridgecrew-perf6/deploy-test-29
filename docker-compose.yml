@@ -1,0 +1,5 @@
+version: '3.4'
+
+services:
+  airbnb-was:
+    image: openjdk:11

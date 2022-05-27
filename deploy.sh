@@ -1,1 +1,1 @@
-sudo docker-compose up
+nohup docker-compose upsudo docker-compose up 1>/dev/null 2>&1 &

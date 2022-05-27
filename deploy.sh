@@ -1,1 +1,2 @@
-sudo echo $(date) > deploy_success.txt
+touch deploy_success.txt
+echo $(date) >> deploy_success.txt

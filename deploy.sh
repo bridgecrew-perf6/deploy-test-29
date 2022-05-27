@@ -1,1 +1,1 @@
-echo $(date) > deploy_success.txt
+sudo echo $(date) > deploy_success.txt

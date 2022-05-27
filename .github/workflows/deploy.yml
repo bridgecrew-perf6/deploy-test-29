@@ -21,15 +21,11 @@ jobs:
         with:
           java-version: 11.0.11
 
-      - name: Gradle 캐싱
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hasFiles('**/*.gradle*') }}
-          restore-keys: |
-            - ${{ runner-os }}-gradle-
+      - name: Gradle 캐시 불러오기
+          uses: actions/cache@v3
+          with:
+            restore-keys: |
+              ${{ runner.os }}-gradle-
 
       - name: gradlew 실행 권한 부여
         run: chmod +x ./gradlew
@@ -38,6 +34,14 @@ jobs:
         run: ./gradlew build
         env:
           JASYPT_KEY: ${{ secrets.JASYPT_KEY }}
+
+      - name: Gradle 캐시 저장
+          uses: actions/cache@v3
+          with:
+            path: |
+              ~/.gradle/caches
+              ~/.gradle/wrapper
+            key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
 
       - name: Docker 환경변수 파일 생성
         run:

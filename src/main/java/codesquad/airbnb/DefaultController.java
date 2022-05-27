@@ -10,4 +10,9 @@ public class DefaultController {
     public String hello() {
         return "hello world";
     }
+
+    @GetMapping("/hello2")
+    public String helloHello() {
+        return "hello world hello world";
+    }
 }

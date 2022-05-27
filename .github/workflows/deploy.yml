@@ -24,6 +24,7 @@ jobs:
       - name: Gradle 캐시 불러오기
         uses: actions/cache@v3
         with:
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
 

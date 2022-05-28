@@ -17,7 +17,7 @@ public class DefaultController {
     }
     
     @GetMapping("/hello3")
-    public String helloHello() {
+    public String helloHeejin() {
         return "안녕 희지니?";
     }
 }

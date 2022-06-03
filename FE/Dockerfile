@@ -12,5 +12,4 @@ RUN \
 # 3000 포트 허용
 EXPOSE 3000
 
-ENTRYPOINT ["npm"]
-CMD ["start"]
+CMD ["npm", "start"]

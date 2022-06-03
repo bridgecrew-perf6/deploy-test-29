@@ -37,24 +37,4 @@ jobs:
           push: true
           tags: 
             ghcr.io/${{ github.repository_owner }}/airbnb-fe:latest
-      
-      - name: airbnb-deploy.zip 생성
-        run: zip -r ./${{ env.zip-name }} ./scripts ./appspec.yml
-        working-directory: ${{ env.working-directory }}
 
-      - name: AWS Credential 설정
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
-
-      - name: AWS S3 로 업로드
-        run: aws s3 cp --region ap-northeast-2 ./${{ env.zip-name }} s3://airbnb-s3-bucket-deploy/${{ env.zip-name }}
-        working-directory: ${{ env.working-directory }}
-
-      - name: AWS CodeDeploy 배포 실행
-        run: aws deploy create-deployment 
-          --application-name airbnb-deploy
-          --deployment-group airbnb-fe-dg
-          --s3-location bucket=airbnb-s3-bucket-deploy,key=${{ env.zip-name }},bundleType=zip

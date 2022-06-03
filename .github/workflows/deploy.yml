@@ -2,7 +2,7 @@ name: deploy-test deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main-none]
 
 jobs:
   buildAndDeploy:

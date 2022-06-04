@@ -18,6 +18,16 @@ jobs:
     steps:
       - name: 체크아웃 Github-Action
         uses: actions/checkout@v3
+      - name: Use Node.js ${{ env.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+      - run: npm ci
+        working-directory: ${{ env.working-directory }}
+      - run: npm run build --if-present
+        working-directory: ${{ env.working-directory }}
+      - run: npm test
+        working-directory: ${{ env.working-directory }}
         
       - name: Docker Buildx 준비
         uses: docker/setup-buildx-action@v1

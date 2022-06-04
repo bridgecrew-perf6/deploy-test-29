@@ -8,9 +8,6 @@ jobs:
   buildAndDeploy:
     name: 프론트 운영 CD
     runs-on: ubuntu-18.04
-    defaults:
-      run:
-        shell: bash
     env:
       working-directory: ./FE
       node-version: 16.13.1

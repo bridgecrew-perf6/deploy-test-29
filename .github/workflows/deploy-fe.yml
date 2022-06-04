@@ -24,9 +24,8 @@ jobs:
           node-version: ${{ env.node-version }}
       - run: npm ci
         working-directory: ${{ env.working-directory }}
+        
       - run: npm run build --if-present
-        working-directory: ${{ env.working-directory }}
-      - run: npm test
         working-directory: ${{ env.working-directory }}
         
       - name: Docker Buildx 준비
@@ -47,7 +46,3 @@ jobs:
           push: true
           tags: 
             ghcr.io/${{ github.repository_owner }}/airbnb-fe:latest
-      
-      - name: airbnb-deploy.zip 생성
-        run: zip -r ./${{ env.zip-name }} ./scripts ./appspec.yml
-        working-directory: ${{ env.working-directory }}

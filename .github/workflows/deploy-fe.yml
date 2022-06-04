@@ -2,7 +2,7 @@ name: 프론트 운영 CD
 
 on:
   push:
-    branches: [deploy-fe]
+    branches: [main]
 
 jobs:
   buildAndDeploy:

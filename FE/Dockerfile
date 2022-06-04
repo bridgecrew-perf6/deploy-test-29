@@ -6,7 +6,9 @@ WORKDIR /app
 
 # PM2 설정
 RUN \
-    npm install -g serve
+    npm install -g serve \
+    npm install \
+    npm run build
 
 # 3000 포트 허용
 EXPOSE 3000

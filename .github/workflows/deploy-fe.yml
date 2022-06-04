@@ -24,8 +24,8 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
       - run: \ 
-          npm ci \
-          npm run build --if-present
+          yarn ci \
+          yarn run build
         working-directory: ${{ env.working-directory }}
 
       - name: Docker Buildx 준비

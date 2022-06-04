@@ -13,23 +13,19 @@ jobs:
         shell: bash
     env:
       working-directory: ./FE
-    strategy:
-      matrix:
-        node-version: [16.13.1]
+      node-version: 16.13.1
 
     steps:
       - name: 체크아웃 Github-Action
         uses: actions/checkout@v2
       
-      - name: Node.js ${{ matrix.node-version }} 준비
-        uses: actions/setup-node@v3
+      - name: Node.js ${{ env.node-version }} 준비
+        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: react 프로젝트 빌드
-        run: \
-          npm install \
-          npm run build
+          node-version: ${{ env.node-version }}
+      - run: \ 
+          npm ci \
+          npm run build --if-present
         working-directory: ${{ env.working-directory }}
 
       - name: Docker Buildx 준비
